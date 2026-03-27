@@ -9,7 +9,7 @@ export default function Navbar({ onLogout, userName }) {
           <div className="bg-indigo-600 p-1.5 rounded-lg shadow-lg shadow-indigo-200">
             <Brain size={20} className="text-white" />
           </div>
-          <span>Second Brain</span>
+          <span>Brainly</span>
         </div>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2 px-3 py-1 bg-slate-100 rounded-full text-[11px] font-bold text-slate-600 uppercase tracking-wider">
