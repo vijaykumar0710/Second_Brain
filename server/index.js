@@ -6,7 +6,12 @@ require("dotenv").config();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://your-vercel-app-link.vercel.app", // Aapka Vercel URL yahan aayega
+    credentials: true,
+  }),
+);
 app.use(express.json());
 
 // Routes
