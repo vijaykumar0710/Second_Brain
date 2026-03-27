@@ -8,7 +8,8 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin: "https://your-vercel-app-link.vercel.app", // Aapka Vercel URL yahan aayega
+    origin: "https://second-brain-beryl-delta.vercel.app/", // Aapka Vercel ka exact link
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   }),
 );

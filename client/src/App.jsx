@@ -6,7 +6,7 @@ import AddLink from "./components/AddLink.jsx";
 import LinkCard from "./components/LinkCard.jsx";
 import { Search } from "lucide-react";
 
-const API_URL = "https://second-brain-0nq1.onrender.com";
+const API_URL = "https://second-brain-0nq1.onrender.com/api";
 
 function App() {
   // Direct check from localStorage during initialization

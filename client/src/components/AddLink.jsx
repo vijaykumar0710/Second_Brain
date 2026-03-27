@@ -46,7 +46,7 @@ export default function AddLink({ token, onLinkAdded }) {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/links",
+        "https://second-brain-0nq1.onrender.com/api/links",
         { url: finalUrl, customTitle },
         { headers: { Authorization: token } },
       );

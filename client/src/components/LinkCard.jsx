@@ -31,7 +31,7 @@ export default function LinkCard({ link, token, onUpdate }) {
     setLoading(true);
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/links/${link._id}/summarize`,
+        `https://second-brain-0nq1.onrender.com/api/links/${link._id}/summarize`,
         {},
         { headers: { Authorization: token } },
       );
@@ -57,7 +57,7 @@ export default function LinkCard({ link, token, onUpdate }) {
             onClick={async () => {
               if (window.confirm("Delete?")) {
                 await axios.delete(
-                  `http://localhost:5000/api/links/${link._id}`,
+                  `https://second-brain-0nq1.onrender.com/api/links/${link._id}`,
                   { headers: { Authorization: token } },
                 );
                 onUpdate();
@@ -143,7 +143,7 @@ export default function LinkCard({ link, token, onUpdate }) {
       {isModalOpen &&
         localSummary &&
         createPortal(
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-100 flex items-center justify-center p-4">
             <div
               className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
               onClick={() => setIsModalOpen(false)}

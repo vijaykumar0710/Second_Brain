@@ -70,7 +70,7 @@ export default function Auth({ setToken }) {
     const path = isLogin ? "/auth/login" : "/auth/register";
     try {
       const res = await axios.post(
-        `http://localhost:5000/api${path}`,
+        `https://second-brain-0nq1.onrender.com/api${path}`,
         formData,
       );
       localStorage.setItem("token", res.data.token);
