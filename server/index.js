@@ -8,8 +8,9 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin: "https://second-brain-beryl-delta.vercel.app/", // Aapka Vercel ka exact link
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    // FIX: End se slash (/) hata diya hai! ✅
+    origin: "https://second-brain-beryl-delta.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // OPTIONS bhi add kar diya safety ke liye
     credentials: true,
   }),
 );
