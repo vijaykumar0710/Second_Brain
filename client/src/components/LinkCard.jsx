@@ -63,7 +63,7 @@ export default function LinkCard({ link, token, onUpdate }) {
                 onUpdate();
               }
             }}
-            className="absolute top-2 right-2 p-1.5 bg-white/90 rounded-full opacity-0 group-hover:opacity-100 text-red-500 shadow-sm"
+            className="absolute top-2 right-2 p-1.5 bg-white/90 rounded-full opacity-100 lg:opacity-0 lg:group-hover:opacity-100 text-red-500 shadow-sm transition-opacity duration-200"
           >
             <Trash2 size={16} />
           </button>
@@ -77,13 +77,16 @@ export default function LinkCard({ link, token, onUpdate }) {
             {link.description}
           </p>
 
-          {/* FIX: Button color changed to Gray-Slate style */}
           <button
             onClick={
               localSummary ? () => setIsModalOpen(true) : handleSummarize
             }
             disabled={loading}
-            className={`w-full mb-3 py-2 rounded-xl text-[11px] font-bold transition-all flex items-center justify-center gap-1.5 ${localSummary ? "bg-slate-100 text-slate-700 border border-slate-200" : "bg-slate-700 text-white hover:bg-slate-800"}`}
+            className={`w-full mb-3 py-2 rounded-xl text-[11px] font-bold transition-all flex items-center justify-center gap-1.5 ${
+              localSummary
+                ? "bg-slate-100 text-slate-700 border border-slate-200"
+                : "bg-slate-700 text-white hover:bg-slate-800"
+            }`}
           >
             {loading ? (
               <Sparkles size={14} className="animate-spin" />
@@ -107,7 +110,11 @@ export default function LinkCard({ link, token, onUpdate }) {
             <div className="relative" ref={shareRef}>
               <button
                 onClick={() => setShowShare(!showShare)}
-                className={`p-1.5 rounded-full ${showShare ? "bg-slate-100 text-slate-600" : "text-slate-400 hover:bg-slate-50"}`}
+                className={`p-1.5 rounded-full ${
+                  showShare
+                    ? "bg-slate-100 text-slate-600"
+                    : "text-slate-400 hover:bg-slate-50"
+                }`}
               >
                 <Share2 size={18} />
               </button>
@@ -139,11 +146,10 @@ export default function LinkCard({ link, token, onUpdate }) {
         </div>
       </div>
 
-      {/* FIX: Modal background and header color changed to Grayish */}
       {isModalOpen &&
         localSummary &&
         createPortal(
-          <div className="fixed inset-0 z-100 flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
             <div
               className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
               onClick={() => setIsModalOpen(false)}

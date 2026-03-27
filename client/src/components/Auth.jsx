@@ -34,7 +34,7 @@ export default function Auth({ setToken }) {
   useEffect(() => {
     let animationFrameId;
     const animateBlobs = () => {
-      setAnimTime((prev) => prev + 0.005); // Speed of the floating blobs
+      setAnimTime((prev) => prev + 0.005);
       animationFrameId = requestAnimationFrame(animateBlobs);
     };
     animateBlobs();
@@ -117,31 +117,28 @@ export default function Auth({ setToken }) {
   ];
 
   return (
+    // Yahan se hamara MAIN PARENT ELEMENT shuru hota hai
     <div className="min-h-screen w-full flex flex-col lg:flex-row bg-[#020617] font-sans relative overflow-hidden">
       {/* --- 🌟 LIVE JS-DRIVEN BACKGROUND 🌟 --- */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        {/* Subtle Tech Grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-size[24px_24px]"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px]"></div>
 
-        {/* Orb 1: Indigo (Moves in a wide circle) */}
         <div
-          className="absolute top-[10%] left-[10%] w-400px h-400px bg-indigo-600/30 rounded-full blur-[100px] mix-blend-screen"
+          className="absolute top-[10%] left-[10%] w-[400px] h-[400px] bg-indigo-600/30 rounded-full blur-[100px] mix-blend-screen"
           style={{
             transform: `translate(${Math.sin(animTime) * 100}px, ${Math.cos(animTime) * 80}px)`,
           }}
         ></div>
 
-        {/* Orb 2: Purple (Moves in an opposite figure-8) */}
         <div
-          className="absolute top-[30%] right-[10%] w-450px h-450px bg-purple-600/30 rounded-full blur-[100px] mix-blend-screen"
+          className="absolute top-[30%] right-[10%] w-[450px] h-[450px] bg-purple-600/30 rounded-full blur-[100px] mix-blend-screen"
           style={{
             transform: `translate(${Math.cos(animTime * 1.5) * -120}px, ${Math.sin(animTime * 1.5) * -90}px)`,
           }}
         ></div>
 
-        {/* Orb 3: Cyan (Floats around the bottom center) */}
         <div
-          className="absolute bottom-[-10%] left-[30%] w-500px h-500px bg-cyan-600/20 rounded-full blur-[120px] mix-blend-screen"
+          className="absolute bottom-[-10%] left-[30%] w-[500px] h-[500px] bg-cyan-600/20 rounded-full blur-[120px] mix-blend-screen"
           style={{
             transform: `translate(${Math.sin(animTime * 0.8) * 150}px, ${Math.cos(animTime * 0.8) * 50}px)`,
           }}
@@ -159,7 +156,7 @@ export default function Auth({ setToken }) {
 
         <h1 className="text-white text-5xl lg:text-7xl font-black mb-8 tracking-tighter leading-tight drop-shadow-2xl">
           Your Personal <br />
-          <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 via-cyan-400 to-purple-400">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-cyan-400 to-purple-400">
             Digital Brain.
           </span>
         </h1>
@@ -174,7 +171,7 @@ export default function Auth({ setToken }) {
           {features.map((f, i) => (
             <div
               key={i}
-              className="flex gap-4 p-5 rounded-3xl bg-[#0f172a]/40 border border-white/5 hover:bg-white/0.05 hover:border-white/20 transition-all duration-300 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-md group"
+              className="flex gap-4 p-5 rounded-3xl bg-[#0f172a]/40 border border-white/5 hover:bg-white/[0.05] hover:border-white/20 transition-all duration-300 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-md group"
             >
               <div className="shrink-0 w-12 h-12 bg-slate-800/80 rounded-2xl flex items-center justify-center border border-white/10 group-hover:bg-indigo-500/20 group-hover:border-indigo-500/50 transition-all duration-300 group-hover:scale-110">
                 {f.icon}
@@ -192,7 +189,7 @@ export default function Auth({ setToken }) {
 
       {/* --- RIGHT SIDE: AUTH BOX --- */}
       <div className="lg:w-2/5 flex items-center justify-center p-6 lg:p-12 z-10">
-        <div className="w-full max-w-md bg-white/0.02 backdrop-blur-3xl p-10 lg:p-12 rounded-[40px] border border-white/10 shadow-[0_0_80px_rgba(79,70,229,0.15)] relative">
+        <div className="w-full max-w-md bg-white/[0.02] backdrop-blur-3xl p-10 lg:p-12 rounded-[40px] border border-white/10 shadow-[0_0_80px_rgba(79,70,229,0.15)] relative">
           <div className="text-center mb-10">
             <div className="inline-flex p-4 bg-indigo-600 rounded-[22px] shadow-2xl shadow-indigo-600/30 mb-6 relative overflow-hidden group">
               <Brain size={34} className="text-white relative z-10" />
@@ -211,7 +208,7 @@ export default function Auth({ setToken }) {
           <form onSubmit={handleSubmit} className="space-y-5">
             {!isLogin && (
               <input
-                className="w-full p-4.5 bg-white/5 border border-white/10 rounded-2xl text-white outline-none focus:ring-2 focus:ring-indigo-500 transition-all placeholder:text-slate-500 text-sm font-medium"
+                className="w-full p-4 bg-white/5 border border-white/10 rounded-2xl text-white outline-none focus:ring-2 focus:ring-indigo-500 transition-all placeholder:text-slate-500 text-sm font-medium"
                 placeholder="Full Name"
                 onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
@@ -220,7 +217,7 @@ export default function Auth({ setToken }) {
               />
             )}
             <input
-              className="w-full p-4.5 bg-white/5 border border-white/10 rounded-2xl text-white outline-none focus:ring-2 focus:ring-indigo-500 transition-all placeholder:text-slate-500 text-sm font-medium"
+              className="w-full p-4 bg-white/5 border border-white/10 rounded-2xl text-white outline-none focus:ring-2 focus:ring-indigo-500 transition-all placeholder:text-slate-500 text-sm font-medium"
               type="email"
               placeholder="Email Address"
               onChange={(e) =>
@@ -229,7 +226,7 @@ export default function Auth({ setToken }) {
               required
             />
             <input
-              className="w-full p-4.5 bg-white/5 border border-white/10 rounded-2xl text-white outline-none focus:ring-2 focus:ring-indigo-500 transition-all placeholder:text-slate-500 text-sm font-medium"
+              className="w-full p-4 bg-white/5 border border-white/10 rounded-2xl text-white outline-none focus:ring-2 focus:ring-indigo-500 transition-all placeholder:text-slate-500 text-sm font-medium"
               type="password"
               placeholder="Password"
               onChange={(e) =>
@@ -241,7 +238,7 @@ export default function Auth({ setToken }) {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-linear-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white p-5 rounded-2xl font-black text-xs uppercase tracking-[0.15em] flex items-center justify-center gap-3 transition-all shadow-[0_0_20px_rgba(79,70,229,0.4)] active:scale-95 disabled:opacity-50 mt-4"
+              className="w-full bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white p-5 rounded-2xl font-black text-xs uppercase tracking-[0.15em] flex items-center justify-center gap-3 transition-all shadow-[0_0_20px_rgba(79,70,229,0.4)] active:scale-95 disabled:opacity-50 mt-4"
             >
               {loading ? (
                 "Verifying..."
@@ -268,6 +265,8 @@ export default function Auth({ setToken }) {
           </div>
         </div>
       </div>
+
+      {/* Yahan par hamara MAIN PARENT ELEMENT close hota hai */}
     </div>
   );
 }
